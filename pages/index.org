@@ -1,0 +1,21 @@
+#+TITLE: start emacs
+#+SLUG: index
+#+OPTIONS: toc:nil num:nil
+
+Start your Emacs configuration with a single command.
+
+* hello hello
+
+hello
+
+** hello hello
+
+hello
+
+*** hello hello
+
+hello
+
+#+begin_src elisp
+  (defvar foo 'bar)
+#+end_src
