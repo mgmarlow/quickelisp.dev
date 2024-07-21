@@ -13,7 +13,7 @@ watch:
 	done
 
 serve:
-	npx http-server output/
+	npx wrangler pages dev
 
 publish:
-	npx wrangler
+	npx wrangler pages deploy output/
