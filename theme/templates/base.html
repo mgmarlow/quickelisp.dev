@@ -6,6 +6,7 @@
     <title>
       {% block title %}{{ site_name | default("weblorg website") }}{% endblock %}
     </title>
+    <link rel="icon" href="/static/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% if site_owner is defined %}<meta name="author" content="{{ site_owner }}" />{% endif %}
     {% if site_description is defined %}<meta name="description" content="{{ site_description }}" />{% endif %}
@@ -22,7 +23,7 @@
           {% block title %}{{ site_name | default("weblorg website") }}{% endblock %}
         </h1>
         <nav>
-          <a href="{{ url_for("pages", slug="about") }}">about</a>
+          <a href="/">get started</a>
           &nbsp;/&nbsp;
           <a href="https://github.com/mgmarlow/start-emacs" target="_blank">github</a>
         </nav>
@@ -40,10 +41,8 @@
       <hr />
 
       <div>
-        Made with &#x2665; and&nbsp;
-        <a href="https://emacs.love/weblorg" target="_blank">
-          weblorg
-        </a>
+        This site is built with
+        <a href="https://github.com/mgmarlow/quickelisp.dev/blob/main/publish.el">Emacs Lisp</a>
       </div>
     </footer>
     {% endblock %}

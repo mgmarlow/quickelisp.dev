@@ -1,3 +1,4 @@
+;;; publish.el --- Build quickelisp.dev  -*- lexical-binding: t; -*-
 (package-initialize)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 
@@ -15,4 +16,9 @@
  :output "output/{{ slug }}.html"
  :url "/{{ slug }}.html")
 
+(weblorg-copy-static
+ :output "output/static/{{ file }}"
+ :url "/static/{{ file }}")
+
 (weblorg-export)
+;;; publish.el ends here

@@ -1,21 +1,70 @@
-#+TITLE: start emacs
+#+TITLE: Start Emacs
 #+SLUG: index
 #+OPTIONS: toc:nil num:nil
 
-Start your Emacs configuration with a single command.
+Look, we've all been down that road of downloading Emacs and
+optimistically opening up the tutorial, only to get lost trying to
+reconfigure the theme. This time, try starting with a little extra
+help.
 
-* hello hello
+[[https://github.com/mgmarlow/start-emacs][Start Emacs]] is a single, 300-line configuration file that serves up
+the basics with an extra helping of comments. It's meant to be
+approachable, easy to read, and easy to extend.
 
-hello
+** What you need
 
-** hello hello
+- [[https://git-scm.com/][git]] (to clone Start Emacs)
+- [[https://gcc.gnu.org/][gcc]] (to compile tree-sitter grammars)
+- [[https://www.gnu.org/software/emacs/][Emacs]] (to... use Emacs)
 
-hello
+** Step one: where's my config?
 
-*** hello hello
+Open up Emacs and invoke the ~describe-variable~ keybinding:
 
-hello
-
-#+begin_src elisp
-  (defvar foo 'bar)
+#+begin_src txt
+  C-h v user-emacs-directory RET
 #+end_src
+
+That's ctrl + h, followed by v, type user-emacs-directory, hit enter.
+
+This variable shows you the ~/path/to/emacs/directory~ that you'll
+need for step two.
+
+** Step two: clone Start Emacs
+
+Clone this git repo, https://github.com/mgmarlow/start-emacs, to your
+config directory.
+
+#+begin_src sh
+  git clone https://github.com/mgmarlow/start-emacs.git /path/to/emacs/directory
+#+end_src
+
+** That's it, you're good to go
+
+Now's a great time to hit up the Emacs tutorial: ~C-h t~.
+
+** Wait, what's in it?
+
+Great question. Here are a few highlights:
+
+- [[https://tree-sitter.github.io/tree-sitter/][Tree-sitter]]: using regular expressions for syntax highlighting is so
+  last year. Tree-sitter is the new hotness: incremental parsing for
+  all of your syntax needs. When you open a buffer for a source file
+  that is tree-sitter-supported, Start Emacs (thanks to the
+  [[https://github.com/renzmann/treesit-auto][treesit-auto]] package) will prompt you to install the language
+  grammar and set everything up.
+
+- LSP ([[https://github.com/joaotavora/eglot][eglot]]): language server protocol. You know it, you probably
+  love it (unless you're Jonathan Blow, or something). Configure your
+  LSP servers with Start Emacs (see the eglot listing in ~init.el~)
+  and you will have an IDE-like editing experience, complete with
+  code-completions, contextual breadcrumbs, and everyone's favorite
+  squiggles.
+
+- Searching and navigation improvements: while Emacs developers may
+  think that the default search tools are "good enough", I very much
+  do not. Start Emacs sets up a couple of packages that bring new life
+  to searching and navigating: ~C-s~ no longer sucks, minibuffer
+  completions don't require you to spam ~TAB~, and your
+  completing-read filter text doesn't have to be 100% identical to
+  your search to pull up hits. Trust me, it's a world of difference.
