@@ -1,0 +1,3 @@
+* quickelisp.dev
+
+This site is built with [[https://orgmode.org/][org-mode]] and Emacs Lisp ([[https://emacs.love/weblorg/][weblorg]]).
